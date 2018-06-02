@@ -1,0 +1,28 @@
+<%- include layouts/header.ejs %>
+
+         <div class="page-data">
+
+             <form method="post" action="/tutorials/edit<%=data[0].id%>">
+                 <table cellpadding="11">
+                 <tr>
+                     <td class="label">Tutorial Title</td><td>: <input type="text" name="title" value="<%=data[0].tutorial_title%>" required></td>
+                  </tr>
+                  <tr>
+                     <td class="label" valign="top">Author ID</td><td valign="top">: <input type="text" name="author_id" value="<%=data[0].author_id%>" required></td>
+                 </tr>
+                 <tr>
+                     <td class="label">Submission Date</td><td>:  <input type="date" name="submission_date" value="<%=moment(data[0].submission_date).format('YYYY-MM-DD')%>" required></td>
+                  </tr>
+                  <tr>
+                     <td class="label"></td>
+                     <td>
+                         &nbsp; <input type="submit" name="submit"      value="Save">
+                        <input type="button" name="cancel"              value="Cancel" class="cancel" onClick="cancelAdd()">
+                     </td>
+                  </tr>
+                 </table>
+             </form>
+
+         </div>
+
+ <%- include layouts/footer.ejs %>

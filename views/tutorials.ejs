@@ -1,0 +1,44 @@
+<%- include layouts/header.ejs %>
+
+    <div class="page-data">
+        <div class="data-btn">
+            <button onClick="addTutorial();">+ Add</button>
+        </div>
+        <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Tuts Title</th>
+                    <th>Author ID</th>
+                    <th>Submission Date</th>
+                    <th width="120px">Action</th>
+                </tr>
+
+                <% if(data.length){
+                    for(var i=0; i<data.length; i++) { 
+                %>
+
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].tutorial_title%></td>
+                    <td><%=data[i].author_id%></td>
+                    <td><%=data[i].submission_date%></td>
+                    <td>
+                        <a class="a-inside edit" href="../tutorials/edit/<%=data[i].id%>">Edit</a>
+                        <a class="a-inside delete" href="../tutorials/delete/<%=data[i].id%>">Delete</a>
+                    </td>
+                </tr>
+
+                <% }
+                } else {
+                %>
+                    <tr>
+                        <td colspan="3">No data</td>
+                    </tr>
+                <% } %>
+
+                </table>
+            </div>
+        </div>
+
+<%- include layouts/footer.ejs %>
